@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giełda — wykresy</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="tlo"></div>
+  <main class="app">
+    <header>
+      <p class="nadrzedny">GPW · NYSE · Nasdaq</p>
+      <h1>Wykresy spółek</h1>
+      <p class="opis">Wybierz giełdę, znajdź ticker i przełącz okres. Dane z Yahoo Finance, opóźnione, tylko do nauki.</p>
+    </header>
+
+    <section class="sterowanie">
+      <div class="gieldy" role="tablist" aria-label="Giełda">
+        <button type="button" class="aktywna" data-gielda="GPW">GPW</button>
+        <button type="button" data-gielda="NYSE">NYSE</button>
+        <button type="button" data-gielda="NASDAQ">Nasdaq</button>
+      </div>
+
+      <label class="szukaj">
+        <span>Spółka lub ticker</span>
+        <input id="szukaj" type="search" placeholder="Np. CD Projekt, PKO, AAPL" autocomplete="off">
+        <ul id="podpowiedzi" hidden></ul>
+      </label>
+
+      <div class="okresy" aria-label="Okres">
+        <button type="button" data-okres="1d">1D</button>
+        <button type="button" data-okres="5d">5D</button>
+        <button type="button" class="aktywna" data-okres="1mo">1M</button>
+        <button type="button" data-okres="3mo">3M</button>
+        <button type="button" data-okres="6mo">6M</button>
+        <button type="button" data-okres="1y">1R</button>
+        <button type="button" data-okres="5y">5L</button>
+        <button type="button" data-okres="max">Max</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="naglowek-spolki">
+        <div>
+          <h2 id="tytul">Wybierz spółkę</h2>
+          <p id="podtytul">Lista popularnych tickerów jest po lewej w wyszukiwarce.</p>
+        </div>
+        <div class="statystyki" id="statystyki" hidden>
+          <div><span>Ostatni</span><strong id="ostatni">—</strong></div>
+          <div><span>Zmiana</span><strong id="zmiana">—</strong></div>
+        </div>
+      </div>
+      <p id="status" class="status"></p>
+      <div class="wykres-wrap">
+        <canvas id="wykres"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <script src="tickers.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-# Giełda — wykresy
+# Giełda — wykresy (moja pierwsza apka)
 
 Aplikacja w przeglądarce: wybierasz giełdę (**GPW**, **NYSE**, **Nasdaq**), ticker i okres, a potem oglądasz wykres kursu.
 
